@@ -1,129 +1,73 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mark Mittasch – Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio – Mark Mittk</title>
 
-    body {
-      font-family: sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
+    <!-- Futura-Fallback mit Google Font 'Barlow' -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
-    header {
-      padding: 2rem;
-      text-align: center;
-      background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #666;
-    }
-
-    section {
-      padding: 3rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-    }
-
-    .project {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .project img {
-      width: 100%;
-      display: block;
-    }
-
-    .project .info {
-      padding: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
-
-    a {
-      color: #0077cc;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        font-size: 0.9rem;
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Futura', 'Barlow', sans-serif;
+        background-color: #ffffff;
+        color: #111111;
       }
-    }
-  </style>
-</head>
-<body>
 
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.03);
+      }
+
+      h1 {
+        text-align: center;
+        padding: 2rem 1rem;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  
   <header>
     <h1>Mark Mittasch</h1>
     <nav>
-      <a href="#intro">Intro</a>
       <a href="#projekte">Projekte</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
   </header>
 
-  <section id="intro">
-    <h2>Willkommen</h2>
-    <p>Ich bin Mark, ein kreativer Kopf mit Fokus auf Design, visuelle Konzepte und innovative Ideen. Hier findest du eine Auswahl meiner Projekte.</p>
-  </section>
-
   <section id="projekte">
     <h2>Projekte</h2>
     <div class="projects">
-      <div class="project">
+      <a href="projekt1.html" class="project">
         <img src="assets/projekt1.jpg" alt="Projekt 1">
-        <div class="info">
-          <h3>Projekt 1</h3>
-          <p>Kurze Beschreibung deines Projekts. Was war das Ziel, was wurde umgesetzt?</p>
-        </div>
-      </div>
-      <div class="project">
+      </a>
+      <a href="projekt2.html" class="project">
         <img src="assets/projekt2.jpg" alt="Projekt 2">
-        <div class="info">
-          <h3>Projekt 2</h3>
-          <p>Optional mehr Infos oder ein Link zu einem Video/externen Link.</p>
-        </div>
-      </div>
-      <!-- Weitere Projekte hier -->
+      </a>
+      <!-- Weitere Bilder -->
     </div>
   </section>
 
   <section id="kontakt">
     <h2>Kontakt</h2>
-    <p>Du möchtest mit mir arbeiten oder hast Fragen? Schreib mir eine E-Mail:  
-      <a href="mailto:deine@email.de">deine@email.de</a>
-    </p>
+    <p>Schreib mir: <a href="mailto:deine@email.de">deine@email.de</a></p>
   </section>
 
   <footer>
