@@ -1,188 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio – Mark Mittk</title>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Mark Mittk</title>
 
-    <!-- Futura-Fallback mit Google Font 'Barlow' -->
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Futura-Fallback mit Google Font 'Barlow' -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
-    <style>
-      /* Grundlayout */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Futura', 'Barlow', sans-serif;
-        background-color: #f9f9f9;
-        color: #222;
-        line-height: 1.6;
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Futura', 'Barlow', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #111111;
+      font-weight: 400;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .project {
+      display: block;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .project.animate img {
+      animation: zoomTransition 0.6s forwards;
+    }
+
+    @keyframes zoomTransition {
+      0% {
+        transform: scale(1);
+        opacity: 1;
       }
-
-      /* Header */
-      header {
-        background-color: #2c3e50;
-        color: #ecf0f1;
-        padding: 2rem 1rem;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      30% {
+        transform: scale(1.08);
       }
-
-      header h1 {
-        margin: 0 0 0.5rem;
-        font-weight: 700;
-        font-size: 2.5rem;
-        letter-spacing: 2px;
+      100% {
+        transform: scale(0.92);
+        opacity: 0;
       }
+    }
 
-      nav a {
-        color: #ecf0f1;
-        margin: 0 1.2rem;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-      }
+    #kontakt {
+      padding: 4rem 2rem 6rem;
+      text-align: center;
+    }
 
-      nav a:hover {
-        color: #1abc9c;
-        text-decoration: underline;
-      }
+    #kontakt a {
+      color: #111111;
+      text-decoration: underline;
+    }
 
-      /* Sektionen */
-      section {
-        max-width: 1000px;
-        margin: 3rem auto;
-        padding: 0 1rem;
-      }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999999;
+    }
+  </style>
+</head>
 
-      section h2 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        color: #34495e;
-        border-bottom: 2px solid #1abc9c;
-        display: inline-block;
-        padding-bottom: 0.3rem;
-      }
+<body>
+  <header>
+    <h1>Mark Mittasch</h1>
+    <nav>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
 
-      .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        padding: 2rem;
-      }
-      
-      .project {
-        display: block;
-        position: relative;
-        width: 100%;
-        /* Set a fixed aspect ratio, e.g., 4:3 */
-        aspect-ratio: 4 / 3;
-        overflow: hidden;
-        border-radius: 8px; /* optional for rounded corners */
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      }
-      
-      .project img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;  /* This makes sure image fills container, cropping if needed */
-        transform: translate(-50%, -50%);
-        transition: transform 0.3s ease;
-        cursor: pointer;
-      }
-      
-      .project img:hover {
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-
-      .gallery img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        aspect-ratio: 4 / 3;
-        transition: transform 0.3s ease;
-      }
-
-      .gallery a:hover img {
-        transform: scale(1.05);
-      }
-
-      /* Kontakt */
-      #kontakt p {
-        font-size: 1.2rem;
-        text-align: center;
-        padding: 0 2rem; /* mehr horizontaler Abstand */
-      }
-
-      #kontakt a {
-        color: #1abc9c;
-        font-weight: 600;
-        text-decoration: none;
-        transition: text-decoration 0.3s ease;
-      }
-
-      #kontakt a:hover {
-        text-decoration: underline;
-      }
-
-      /* Footer */
-      footer {
-        text-align: center;
-        padding: 1.5rem 1rem;
-        background: #2c3e50;
-        color: #bdc3c7;
-        font-size: 0.9rem;
-        margin-top: 4rem;
-      }
-
-      /* Responsive Anpassungen */
-      @media (max-width: 400px) {
-        header h1 {
-          font-size: 1.8rem;
-        }
-
-        nav a {
-          margin: 0 0.6rem;
-          font-size: 1rem;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <h1>Mark Mittasch</h1>
-      <nav>
-        <a href="#projekte">Projekte</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </header>
-
-    <section id="projekte">
   <div class="gallery">
-    <a href="projekt1.html" class="project">
+    <a href="projekt1.html" class="project" data-target="projekt1.html">
       <img src="assets/projekt1.jpg" alt="Projekt 1" />
     </a>
-    <a href="projekt2.html" class="project">
+    <a href="projekt2.html" class="project" data-target="projekt2.html">
       <img src="assets/projekt2.jpg" alt="Projekt 2" />
     </a>
-    <!-- Weitere Bilder -->
+    <!-- Weitere Projekte hier -->
   </div>
-</section>
 
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Schreib mir: <a href="mailto:deine@email.de">deine@email.de</a></p>
+  </section>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <p>Schreib mir: <a href="mailto:deine@email.de">mark.mitt061@gmail.com</a></p>
-    </section>
+  <footer>
+    © 2025 Mark Mittasch
+  </footer>
 
-    <footer>
-      © 2025 Mark Mittasch
-    </footer>
-  </body>
+  <script>
+    document.querySelectorAll('.project').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const destination = this.getAttribute('data-target');
+        this.classList.add('animate');
+
+        setTimeout(() => {
+          window.location.href = destination;
+        }, 600);
+      });
+    });
+  </script>
+</body>
 </html>
