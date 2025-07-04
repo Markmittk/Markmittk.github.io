@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio – Mark Mittk</title>
+  <title>Portfolio – Mark Mittasch</title>
 
   <!-- Futura-Fallback mit Google Font 'Barlow' -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       padding: 0;
@@ -22,124 +18,121 @@
     }
 
     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 2rem;
-      text-align: center;
+      flex-wrap: wrap;
     }
 
-    header h1 {
+    h1 {
       margin: 0;
-      font-size: 2rem;
       font-weight: 700;
+      font-size: 1.8rem;
     }
 
     nav {
-      margin-top: 1rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
 
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: #111111;
-      font-weight: 400;
+      color: #111;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s ease;
     }
 
-    .gallery {
+    nav a:hover {
+      border-bottom: 2px solid #111;
+    }
+
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
       padding: 2rem;
     }
 
-    .project {
-      display: block;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .project img {
+    .projects img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
       display: block;
+      transition: transform 0.4s ease;
+      cursor: pointer;
     }
 
-    .project.animate img {
-      animation: zoomTransition 0.6s forwards;
-    }
-
-    @keyframes zoomTransition {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      30% {
-        transform: scale(1.08);
-      }
-      100% {
-        transform: scale(0.92);
-        opacity: 0;
-      }
+    .projects a:hover img {
+      transform: scale(1.02);
     }
 
     #kontakt {
-      padding: 4rem 2rem 6rem;
+      padding: 4rem 2rem;
       text-align: center;
     }
 
-    #kontakt a {
-      color: #111111;
-      text-decoration: underline;
+    #kontakt h2 {
+      margin-bottom: 1rem;
+    }
+
+    #kontakt p {
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #999999;
+      color: #999;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 1rem;
+        gap: 1.2rem;
+      }
     }
   </style>
 </head>
-
 <body>
+
   <header>
     <h1>Mark Mittasch</h1>
     <nav>
       <a href="#kontakt">Kontakt</a>
+      <a href="about.html">Über mich</a>
     </nav>
   </header>
 
-  <div class="gallery">
-    <a href="projekt1.html" class="project" data-target="projekt1.html">
-      <img src="assets/projekt1.jpg" alt="Projekt 1" />
+  <section class="projects">
+    <a href="projekt1.html" class="project">
+      <img src="assets/projekt1.jpg" alt="Projekt 1">
     </a>
-    <a href="projekt2.html" class="project" data-target="projekt2.html">
-      <img src="assets/projekt2.jpg" alt="Projekt 2" />
+    <a href="projekt2.html" class="project">
+      <img src="assets/projekt2.jpg" alt="Projekt 2">
     </a>
     <!-- Weitere Projekte hier -->
-  </div>
+  </section>
 
   <section id="kontakt">
     <h2>Kontakt</h2>
-    <p>Schreib mir: <a href="mailto:deine@email.de">mark.mitt061@gmail.com</a></p>
+    <p>Schreib mir: <a href="mailto:deine@email.de">deine@email.de</a></p>
   </section>
 
   <footer>
     © 2025 Mark Mittasch
   </footer>
 
-  <script>
-    document.querySelectorAll('.project').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const destination = this.getAttribute('data-target');
-        this.classList.add('animate');
-
-        setTimeout(() => {
-          window.location.href = destination;
-        }, 600);
-      });
-    });
-  </script>
 </body>
 </html>
+
