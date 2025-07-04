@@ -2,42 +2,106 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projekt 1 – Mark Mittasch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt 1 – Mark Mittk</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: sans-serif;
-      background: #fff;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      font-family: 'Futura', 'Barlow', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+    }
+
+    header {
       padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+    }
+
+    .project-content {
       max-width: 800px;
-      margin: 0 auto;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
     }
 
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 2rem;
+    .project-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
     }
 
-    a {
-      color: #0077cc;
+    .project-content p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999999;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .project-image {
+        height: 40vh;
+      }
+
+      .project-content h2 {
+        font-size: 1.4rem;
+      }
+
+      .project-content p {
+        font-size: 0.95rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Projekt 1</h1>
+    <nav><a href="index.html">← Zurück zur Übersicht</a></nav>
+  </header>
 
-  <h1>Projekt 1</h1>
+  <img src="assets/projekt1.jpg" alt="Projekt 1" class="project-image" />
 
-  <p>
-    Hier kannst du die Details zu diesem Projekt beschreiben. Was war deine Aufgabe? Welches Medium hast du verwendet? Welche Tools oder Programme?
-  </p>
+  <div class="project-content">
+    <h2>Kurze Projektbeschreibung</h2>
+    <p>
+      Hier kannst du Informationen zu deinem Projekt einfügen: Idee, Ziel, Technologie, Ergebnis usw.
+    </p>
+  </div>
 
-  <img src="assets/projekt1.jpg" alt="Projekt 1">
-
-  <p>
-    <a href="index.html">← Zurück zur Übersicht</a>
-  </p>
-
+  <footer>
+    © 2025 Mark Mittasch
+  </footer>
 </body>
 </html>
