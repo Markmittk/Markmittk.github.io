@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über mich – Mark Mittasch</title>
+
+  <!-- Google Font als Futura-Ersatz -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Futura', 'Barlow', sans-serif;
+      background-color: #fff;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .bio-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    a.back-link {
+      margin-top: 3rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #111;
+      border-bottom: 2px solid #111;
+    }
+
+    /* Mobile Optimierung */
+    @media (max-width: 600px) {
+      .bio-text {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="assets/profilbild.jpg" alt="Profilbild Mark Mittasch" class="profile-image" />
+
+    <div class="bio-text">
+      <p>
+        Hallo! Ich bin Mark Mittasch – Designer, Denker, Macher.<br><br>
+        Meine Arbeit bewegt sich zwischen digitaler Gestaltung, konzeptionellen Installationen und visueller Kommunikation. Ich interessiere mich besonders für den Moment, in dem sich Technik und Emotion begegnen – in Bildern, Bewegungen oder Raumkonzepten.
+      </p>
+    </div>
+
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+  </div>
+</body>
+</html>
