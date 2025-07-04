@@ -41,38 +41,61 @@
         padding: 2rem 1rem;
         font-weight: 700;
       }
+
+      nav {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      nav a {
+        margin: 0 1rem;
+        text-decoration: none;
+        color: #111;
+        font-weight: 600;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem 0;
+        color: #666;
+        font-size: 0.9rem;
+      }
     </style>
   </head>
-  
-  <header>
-    <h1>Mark Mittasch</h1>
-    <nav>
-      <a href="#projekte">Projekte</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
 
-  <section id="projekte">
-    <h2>Projekte</h2>
-    <div class="projects">
-      <a href="projekt1.html" class="project">
-        <img src="assets/projekt1.jpg" alt="Projekt 1">
-      </a>
-      <a href="projekt2.html" class="project">
-        <img src="assets/projekt2.jpg" alt="Projekt 2">
-      </a>
-      <!-- Weitere Bilder -->
-    </div>
-  </section>
+  <body>
+    <header>
+      <h1>Mark Mittasch</h1>
+      <nav>
+        <a href="#projekte">Projekte</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
 
-  <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Schreib mir: <a href="mailto:deine@email.de">deine@email.de</a></p>
-  </section>
+    <section id="projekte">
+      <h2>Projekte</h2>
+      <div class="gallery">
+        <a href="projekt1.html" class="project">
+          <img src="assets/projekt1.jpg" alt="Projekt 1" />
+        </a>
+        <a href="projekt2.html" class="project">
+          <img src="assets/projekt2.jpg" alt="Projekt 2" />
+        </a>
+        <!-- Weitere Bilder -->
+      </div>
+    </section>
 
-  <footer>
-    © 2025 Mark Mittasch
-  </footer>
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <p>Schreib mir: <a href="mailto:deine@email.de">deine@email.de</a></p>
+    </section>
 
-</body>
+    <footer>
+      © 2025 Mark Mittasch
+    </footer>
+  </body>
 </html>
