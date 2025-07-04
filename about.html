@@ -3,74 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Über mich – Mark Mittasch</title>
-
-  <!-- Google Font als Futura-Ersatz -->
+  <title>About – Mark Mittasch</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
-  
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #fff;
       color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
     }
 
-    .container {
-      max-width: 900px;
-      width: 100%;
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .about {
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .profile-image {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 12px;
+    .about img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100%;
       margin-bottom: 2rem;
     }
 
-    .bio-text {
-      font-size: 1.2rem;
+    .about p {
+      font-size: 1.1rem;
       line-height: 1.6;
     }
 
-    a.back-link {
-      margin-top: 3rem;
-      text-decoration: none;
-      font-weight: bold;
-      color: #111;
-      border-bottom: 2px solid #111;
-    }
-
-    /* Mobile Optimierung */
-    @media (max-width: 600px) {
-      .bio-text {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="assets/profilbild.jpg" alt="Profilbild Mark Mittasch" class="profile-image" />
+  <header>
+    <h1>Mark Mittasch</h1>
+    <nav>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
 
-    <div class="bio-text">
-      <p>
-        Hallo! Ich bin Mark Mittasch – Designer, Denker, Macher.<br><br>
-        Meine Arbeit bewegt sich zwischen digitaler Gestaltung, konzeptionellen Installationen und visueller Kommunikation. Ich interessiere mich besonders für den Moment, in dem sich Technik und Emotion begegnen – in Bildern, Bewegungen oder Raumkonzepten.
-      </p>
-    </div>
+  <section class="about">
+    <img src="assets/profilbild.jpg" alt="Profilbild von Mark Mittasch" />
+    <p>
+      Ich bin Mark Mittasch, Designer mit Fokus auf minimalistische Gestaltung, Typografie und digitale Konzepte.
+      Mein Portfolio zeigt eine Auswahl an Arbeiten, die sowohl kreative als auch funktionale Lösungen in den Mittelpunkt stellen.
+      Ich bin stets interessiert an neuen Projekten, Kollaborationen und Herausforderungen.
+    </p>
+  </section>
 
-    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-  </div>
+  <footer>
+    © 2025 Mark Mittasch
+  </footer>
 </body>
 </html>
+
