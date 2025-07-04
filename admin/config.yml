@@ -1,1 +1,20 @@
+backend:
+  name: github
+  repo: Markmittk/Markmittk # replace with your repo
+  branch: main
+
+media_folder: "assets/uploads"   # Where uploaded files go in repo
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
 
