@@ -4,101 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projekt 1 – Mark Mittk</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Futura', 'Barlow', sans-serif;
-      background-color: #ffffff;
-      color: #111111;
+      background-color: #fff;
+      color: #111;
     }
 
     header {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
+      margin-left: 1.5rem;
       text-decoration: none;
       color: #111;
-      font-size: 0.9rem;
+      font-weight: 700;
     }
 
-    .project-image {
+    .project-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .project-detail img {
       width: 100%;
-      height: 60vh;
+      height: auto;
       object-fit: cover;
+      margin-bottom: 2rem;
     }
 
-    .project-content {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .project-content h2 {
-      font-size: 1.8rem;
+    .project-detail h2 {
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    .project-content p {
+    .project-detail p {
+      font-size: 1.1rem;
       line-height: 1.6;
-      font-size: 1rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #999999;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .project-image {
-        height: 40vh;
-      }
-
-      .project-content h2 {
-        font-size: 1.4rem;
-      }
-
-      .project-content p {
-        font-size: 0.95rem;
-      }
-
-      header h1 {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Projekt 1</h1>
-    <nav><a href="index.html">← Zurück zur Übersicht</a></nav>
+    <h1>Mark Mittasch</h1>
+    <nav>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="index.html">Home</a>
+    </nav>
   </header>
 
-  <img src="assets/projekt1.jpg" alt="Projekt 1" class="project-image" />
-
-  <div class="project-content">
-    <h2>Kurze Projektbeschreibung</h2>
+  <section class="project-detail">
+    <img src="assets/projekt1.jpg" alt="Projekt 1 Bild">
+    <h2>Projekt 1 Titel</h2>
     <p>
-      Hier kannst du Informationen zu deinem Projekt einfügen: Idee, Ziel, Technologie, Ergebnis usw.
+      Hier kannst du eine kurze Beschreibung deines Projekts schreiben. Was war das Ziel? Welche Tools hast du verwendet?
+      Welche Herausforderungen gab es? Welche Ergebnisse konntest du erzielen?
     </p>
-  </div>
+  </section>
 
   <footer>
     © 2025 Mark Mittasch
