@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography – Mark Mittasch</title>
+
+  <!-- Futura-Fallback mit Google Font 'Barlow' -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Futura', 'Barlow', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      padding-top: 80px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: transparent; /* komplett transparent */
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    header.transparent {
+      background-color: transparent; /* bleibt transparent */
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project.animate {
+      animation: zoomInOut 1s ease forwards;
+    }
+
+    @keyframes zoomInOut {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+    }
+
+    footer .contact-footer {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer .contact-footer a {
+      color: #111;
+      text-decoration: none;
+      margin-left: 0.3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="main-header">
+    <h2 onclick="window.location.href='index.html'">Mark Mittasch</h2>
+    <nav>
+      <a href="index.html">Design</a>
+      <a href="photography.html">Photography</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="gallery" id="gallery">
+      <div class="project" onclick="animateAndRedirect(this, 'photo1.html')">
+        <img src="assets/photo1.jpg" alt="Photography 1" />
+      </div>
+      <div class="project" onclick="animateAndRedirect(this, 'photo2.html')">
+        <img src="assets/photo2.jpg" alt="Photography 2" />
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="contact-footer">
+      Kontakt: 
+      <a href="https://www.instagram.com/markmittk/" target="_blank" rel="noopener noreferrer">Instagram</a> | 
+      <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a>  
+    </div>
+  </footer>
+
+  <script>
+    function animateAndRedirect(element, url) {
+      element.classList.add("animate");
+      setTimeout(() => {
+        window.location.href = url;
+      }, 1000);
+    }
+
+    const header = document.getElementById("main-header");
+    const gallery = document.getElementById("gallery");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          header.classList.add("transparent");
+        } else {
+          header.classList.remove("transparent");
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-80px 0px 0px 0px"
+      }
+    );
+
+    observer.observe(gallery);
+  </script>
+</body>
+</html>
