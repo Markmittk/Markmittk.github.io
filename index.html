@@ -9,17 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Body und Standard */
     body {
       margin: 0;
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #ffffff;
       color: #111111;
       padding-top: 80px;
-      cursor: none; /* Nativen Cursor komplett ausblenden */
+      cursor: default; /* nativer Cursor */
     }
 
-    /* Transparenter Header */
     header {
       position: sticky;
       top: 0;
@@ -34,7 +32,6 @@
       flex-wrap: wrap;
     }
 
-    /* Header Titel */
     header h2 {
       margin: 0;
       font-size: 2rem;
@@ -42,7 +39,8 @@
       opacity: 0.9;
       transition: opacity 0.3s ease;
       color: #111;
-      background-color: rgba(255 255 255 / 0.9); /* leichte hintergrundfarbe, damit es nicht verschmilzt */
+      background: transparent;
+      border: 1px solid transparent;
       padding: 0.1rem 0.3rem;
       border-radius: 3px;
     }
@@ -51,7 +49,6 @@
       opacity: 1;
     }
 
-    /* Navigation */
     nav a {
       position: relative;
       margin-left: 1.5rem;
@@ -59,8 +56,9 @@
       color: #111;
       font-weight: 700;
       font-size: 1.2rem;
-      opacity: 0.9;
-      background-color: rgba(255 255 255 / 0.9); /* weiße Box, nicht transparent */
+      opacity: 1;
+      background: transparent;
+      border: 1px solid transparent; /* unsichtbarer Rahmen */
       padding: 0.2rem 0.5rem;
       border-radius: 3px;
       transition: opacity 0.3s ease;
@@ -86,7 +84,6 @@
       width: 100%;
     }
 
-    /* Galerie */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -125,7 +122,6 @@
       }
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
@@ -144,7 +140,6 @@
       margin-left: 0.3rem;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -156,26 +151,6 @@
         margin-right: 1rem;
         margin-top: 0.5rem;
       }
-    }
-
-    /* Schwarzer Cursor als Quadrat */
-    .custom-cursor {
-      position: fixed;
-      width: 16px;
-      height: 16px;
-      background: #000;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s ease, height 0.2s ease;
-      border-radius: 2px;
-      mix-blend-mode: difference; /* sorgt dafür, dass der Cursor auf hellem & dunklem Untergrund sichtbar bleibt */
-    }
-
-    /* Größer wenn über klickbare Elemente */
-    .custom-cursor.active {
-      width: 24px;
-      height: 24px;
     }
   </style>
 </head>
@@ -209,8 +184,6 @@
     </div>
   </footer>
 
-  <div class="custom-cursor" id="cursor"></div>
-
   <script>
     function animateAndRedirect(element, url) {
       element.classList.add("animate");
@@ -218,27 +191,6 @@
         window.location.href = url;
       }, 1000);
     }
-
-    const cursor = document.getElementById('cursor');
-
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    // Klickbare Elemente definieren
-    const clickableSelectors = ['a', '.project', 'h2'];
-
-    clickableSelectors.forEach(selector => {
-      document.querySelectorAll(selector).forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursor.classList.add('active');
-        });
-        el.addEventListener('mouseleave', () => {
-          cursor.classList.remove('active');
-        });
-      });
-    });
   </script>
 </body>
 </html>
