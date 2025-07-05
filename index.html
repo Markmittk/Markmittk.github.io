@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Mark Mittasch</title>
 
+  <!-- Futura-Fallback mit Google Font 'Barlow' -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -13,7 +14,7 @@
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #ffffff;
       color: #111111;
-      cursor: default;
+      padding-top: 80px; /* Abstand oben gleich Header-Höhe */
     }
 
     header {
@@ -22,29 +23,31 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: transparent;
+      background-color: transparent; /* transparent */
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    header.transparent {
+      background-color: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     header h2 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2rem; /* größer */
       cursor: pointer;
-      opacity: 0.9;
-      transition: opacity 0.3s ease;
       color: #111;
-      background: transparent;
-      border: 1px solid transparent;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
     }
 
-    header h2:hover {
-      opacity: 1;
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -54,18 +57,11 @@
       color: #111;
       font-weight: 700;
       font-size: 1.2rem;
-      opacity: 1;
       background: transparent;
-      border: 1px solid transparent;
-      padding: 0.2rem 0.5rem;
-      border-radius: 3px;
-      transition: opacity 0.3s ease;
+      border: 1px solid transparent; /* kein sichtbarer Rahmen */
+      padding: 0; /* kein horizontales Padding, damit underline genau passt */
       cursor: pointer;
       display: inline-block;
-    }
-
-    nav a:hover {
-      opacity: 1;
     }
 
     nav a::after {
@@ -77,15 +73,16 @@
       background-color: currentColor;
       width: 0;
       transition: width 0.3s ease;
-      display: inline-block;
+      display: block;
     }
 
     nav a:hover::after {
-      width: 100%;
+      width: 100%; /* genau so breit wie der Text */
     }
 
     main {
-      margin-top: 80px; /* Abstand vom Header zum Start der Galerie */
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .gallery {
@@ -107,7 +104,6 @@
     .project {
       overflow: hidden;
       position: relative;
-      cursor: pointer;
     }
 
     .project.animate {
@@ -144,6 +140,7 @@
       margin-left: 0.3rem;
     }
 
+    /* Responsive */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -195,6 +192,26 @@
         window.location.href = url;
       }, 1000);
     }
+
+    const header = document.getElementById("main-header");
+    const gallery = document.getElementById("gallery");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          header.classList.add("transparent");
+        } else {
+          header.classList.remove("transparent");
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-80px 0px 0px 0px"
+      }
+    );
+
+    observer.observe(gallery);
   </script>
 </body>
 </html>
