@@ -14,12 +14,14 @@
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #ffffff;
       color: #111111;
-      padding: 0;
+      padding-top: 80px;
     }
 
     header {
       position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
       background-color: white;
       padding: 1.5rem 2rem;
@@ -33,7 +35,7 @@
     header.transparent {
       background-color: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px); /* für Safari */
+      -webkit-backdrop-filter: blur(10px);
     }
 
     header h1 {
@@ -86,27 +88,37 @@
     }
 
     #kontakt {
-      padding: 3rem 2rem;
+      padding: 3rem 2rem 1rem;
     }
 
-    .kontakt-container {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: flex-start;
-      margin-top: 1rem;
+    #kontakt p, #kontakt a.instagram-link {
       font-size: 1.1rem;
+      color: #111;
+      text-decoration: none;
+      margin-top: 0.3rem;
+      display: block;
     }
 
-    .kontakt-container a {
-      text-decoration: none;
-      color: #111;
+    #kontakt a.instagram-link:hover {
+      color: #e1306c;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+    }
+
+    footer .contact-footer {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer .contact-footer a {
+      color: #111;
+      text-decoration: none;
+      margin-left: 0.3rem;
     }
 
     /* Responsive */
@@ -122,9 +134,8 @@
         margin-top: 0.5rem;
       }
 
-      .kontakt-container {
-        flex-direction: column;
-        align-items: flex-start;
+      #kontakt {
+        padding: 2rem;
       }
     }
   </style>
@@ -134,7 +145,6 @@
   <header id="main-header">
     <h1>Mark Mittasch</h1>
     <nav>
-      <a href="#kontakt">Kontakt</a>
       <a href="about.html">About</a>
     </nav>
   </header>
@@ -142,24 +152,29 @@
   <main>
     <div class="gallery" id="gallery">
       <div class="project" onclick="animateAndRedirect(this, 'projekt1.html')">
-        <img src="assets/projekt1.jpg" alt="Projekt 1">
+        <img src="assets/projekt1.jpg" alt="Projekt 1" />
       </div>
       <div class="project" onclick="animateAndRedirect(this, 'projekt2.html')">
-        <img src="assets/projekt2.jpg" alt="Projekt 2">
+        <img src="assets/projekt2.jpg" alt="Projekt 2" />
       </div>
     </div>
   </main>
 
-  <section id="kontakt">
+  <section id="kontakt" aria-label="Kontaktinformationen">
     <h2>Kontakt</h2>
-    <div class="kontakt-container">
-      <p>Schreib mir: <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a></p>
-      <p><a href="https://www.instagram.com/markmittk/" target="_blank">Instagram</a></p>
-    </div>
+    <p>Schreib mir: <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a></p>
+    <a href="https://www.instagram.com/markmittk/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+      Instagram
+    </a>
   </section>
 
   <footer>
     © 2025 Mark Mittasch
+    <div class="contact-footer">
+      Meine Kontaktoptionen: 
+      <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a> | 
+      <a href="https://www.instagram.com/markmittk/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
   </footer>
 
   <script>
@@ -170,7 +185,6 @@
       }, 1000);
     }
 
-    // Header transparent + Glas-Effekt bei Galerie
     const header = document.getElementById("main-header");
     const gallery = document.getElementById("gallery");
 
