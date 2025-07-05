@@ -11,14 +11,31 @@
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #fff;
       color: #111;
+      padding: 0;
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: white;
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    header.transparent {
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
     }
 
     nav a {
@@ -55,19 +72,49 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+    }
+
+    footer .contact-footer {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer .contact-footer a {
+      color: #111;
+      text-decoration: none;
+      margin-left: 0.3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .about img {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="main-header">
     <h1>Mark Mittasch</h1>
     <nav>
-      <a href="index.html#kontakt">Kontakt</a>
       <a href="index.html">Home</a>
     </nav>
   </header>
 
-  <section class="about">
+  <section class="about" id="gallery">
     <img src="assets/profilbild.jpg" alt="Profilbild von Mark Mittasch" />
     <p>
       I’m Mark Mittasch — a designer and visual artist based in Frankfurt am Main. Currently studying at HfG Offenbach, I’m developing a multidisciplinary practice grounded in curiosity and exploration.
@@ -83,7 +130,33 @@
 
   <footer>
     © 2025 Mark Mittasch
+    <div class="contact-footer">
+      Meine Kontaktoptionen: 
+      <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a> | 
+      <a href="https://www.instagram.com/markmittk/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
   </footer>
+
+  <script>
+    const header = document.getElementById("main-header");
+    const gallery = document.getElementById("gallery");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          header.classList.add("transparent");
+        } else {
+          header.classList.remove("transparent");
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-80px 0px 0px 0px"
+      }
+    );
+
+    observer.observe(gallery);
+  </script>
 </body>
 </html>
-
