@@ -14,7 +14,6 @@
       background-color: #ffffff;
       color: #111111;
       cursor: default;
-      /* padding-top entfernt */
     }
 
     header {
@@ -62,6 +61,7 @@
       border-radius: 3px;
       transition: opacity 0.3s ease;
       cursor: pointer;
+      display: inline-block;
     }
 
     nav a:hover {
@@ -73,10 +73,11 @@
       position: absolute;
       left: 0;
       bottom: -4px;
-      width: 0;
       height: 2px;
       background-color: currentColor;
+      width: 0;
       transition: width 0.3s ease;
+      display: inline-block;
     }
 
     nav a:hover::after {
@@ -84,7 +85,7 @@
     }
 
     main {
-      margin-top: 80px; /* Abstand vom Header zum Start der Galerie gleich dem Abstand von Seitenanfang bis Header */
+      margin-top: 80px; /* Abstand vom Header zum Start der Galerie */
     }
 
     .gallery {
