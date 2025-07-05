@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pendulum – Mark Mittk</title>
+  <title>Projekt 1 – Mark Mittasch</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -16,9 +16,7 @@
 
     header {
       position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
       background-color: transparent;
       padding: 1.5rem 2rem;
@@ -35,9 +33,10 @@
       -webkit-backdrop-filter: none;
     }
 
-    header h1 {
+    header h2 {
       margin: 0;
       font-size: 1.5rem;
+      cursor: pointer;
     }
 
     nav a {
@@ -87,33 +86,19 @@
       text-decoration: none;
       margin-left: 0.3rem;
     }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 1rem;
-        margin-top: 0.5rem;
-      }
-    }
   </style>
 </head>
 <body>
   <header id="main-header">
-    <h2>Mark Mittasch</h2>
+    <h2 onclick="window.location.href='index.html'">Mark Mittasch</h2>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
   <section class="project-detail">
-    <img src="assets/projekt2.jpg" alt="Projekt 2 Bild">
-    <h2>Pendulum</h2>
+    <img src="assets/projekt2.jpg" alt="Projekt 2 Bild" />
+    <h2>Projekt 2 Titel</h2>
     <p>
       Hier kannst du eine kurze Beschreibung deines Projekts schreiben. Was war das Ziel? Welche Tools hast du verwendet?
       Welche Herausforderungen gab es? Welche Ergebnisse konntest du erzielen?
@@ -127,5 +112,27 @@
       <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a>  
     </div>
   </footer>
+
+  <script>
+    const header = document.getElementById("main-header");
+    const projectSection = document.querySelector(".project-detail");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          header.classList.add("transparent");
+        } else {
+          header.classList.remove("transparent");
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-80px 0px 0px 0px"
+      }
+    );
+
+    observer.observe(projectSection);
+  </script>
 </body>
 </html>
