@@ -15,7 +15,7 @@
       background-color: #ffffff;
       color: #111111;
       padding-top: 80px;
-      cursor: none;
+      cursor: none; /* Browser-Cursor komplett ausblenden */
     }
 
     header {
@@ -24,27 +24,19 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: transparent;
+      background-color: #fff; /* feste Hintergrundfarbe, kein transparent */
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-    }
-
-    header.transparent {
-      background-color: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
     header h2 {
       margin: 0;
       font-size: 2rem;
       cursor: pointer;
-      opacity: 0.6;
-      mix-blend-mode: difference;
+      opacity: 0.8;
       transition: opacity 0.3s ease;
     }
 
@@ -56,12 +48,12 @@
       position: relative;
       margin-left: 1.5rem;
       text-decoration: none;
-      color: inherit;
+      color: #111;
       font-weight: 700;
       font-size: 1.2rem;
-      opacity: 0.6;
-      mix-blend-mode: difference;
+      opacity: 0.8;
       transition: opacity 0.3s ease;
+      cursor: pointer; /* Für Hover */
     }
 
     nav a:hover {
@@ -102,6 +94,7 @@
     .project {
       overflow: hidden;
       position: relative;
+      cursor: pointer;
     }
 
     .project.animate {
@@ -160,6 +153,14 @@
       pointer-events: none;
       z-index: 9999;
       transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease;
+      border-radius: 2px;
+    }
+
+    /* Größer wenn über klickbare Elemente */
+    .custom-cursor.active {
+      width: 24px;
+      height: 24px;
     }
   </style>
 </head>
@@ -193,7 +194,6 @@
     </div>
   </footer>
 
-  <!-- Cursor -->
   <div class="custom-cursor" id="cursor"></div>
 
   <script>
@@ -204,31 +204,25 @@
       }, 1000);
     }
 
-    const header = document.getElementById("main-header");
-    const gallery = document.getElementById("gallery");
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          header.classList.add("transparent");
-        } else {
-          header.classList.remove("transparent");
-        }
-      },
-      {
-        root: null,
-        threshold: 0,
-        rootMargin: "-80px 0px 0px 0px"
-      }
-    );
-
-    observer.observe(gallery);
-
-    // Custom Cursor Bewegung
     const cursor = document.getElementById('cursor');
+
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
+    });
+
+    // Klickbare Elemente definieren
+    const clickableSelectors = ['a', '.project', 'h2'];
+
+    clickableSelectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('active');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('active');
+        });
+      });
     });
   </script>
 </body>
