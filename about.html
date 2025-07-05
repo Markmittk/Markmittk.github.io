@@ -11,14 +11,16 @@
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #fff;
       color: #111;
-      padding: 0;
+      padding-top: 80px;
     }
 
     header {
       position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      background-color: white;
+      background-color: transparent;
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -28,9 +30,9 @@
     }
 
     header.transparent {
-      background-color: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     header h1 {
@@ -59,7 +61,7 @@
       width: 600px;
       height: 600px;
       object-fit: cover;
-      border-radius: 0%;
+      border-radius: 0;
       margin-bottom: 2rem;
     }
 
@@ -98,11 +100,6 @@
         margin-right: 1rem;
         margin-top: 0.5rem;
       }
-
-      .about img {
-        width: 100%;
-        height: auto;
-      }
     }
   </style>
 </head>
@@ -114,7 +111,7 @@
     </nav>
   </header>
 
-  <section class="about" id="gallery">
+  <section class="about">
     <img src="assets/profilbild.jpg" alt="Profilbild von Mark Mittasch" />
     <p>
       I’m Mark Mittasch — a designer and visual artist based in Frankfurt am Main. Currently studying at HfG Offenbach, I’m developing a multidisciplinary practice grounded in curiosity and exploration.
@@ -135,27 +132,5 @@
       <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a>  
     </div>
   </footer>
-
-  <script>
-    const header = document.getElementById("main-header");
-    const gallery = document.getElementById("gallery");
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          header.classList.add("transparent");
-        } else {
-          header.classList.remove("transparent");
-        }
-      },
-      {
-        root: null,
-        threshold: 0,
-        rootMargin: "-80px 0px 0px 0px"
-      }
-    );
-
-    observer.observe(gallery);
-  </script>
 </body>
 </html>
