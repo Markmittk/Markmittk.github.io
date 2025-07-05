@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Mark Mittasch</title>
 
-  <!-- Futura-Fallback mit Google Font 'Barlow' -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -14,7 +13,7 @@
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #ffffff;
       color: #111111;
-      padding-top: 80px; /* Abstand oben gleich Header-Höhe */
+      padding-top: 80px;
     }
 
     header {
@@ -23,7 +22,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: transparent; /* transparent */
+      background-color: transparent;
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -40,7 +39,7 @@
 
     header h2 {
       margin: 0;
-      font-size: 2rem; /* größer */
+      font-size: 2rem;
       cursor: pointer;
       color: #111;
     }
@@ -58,10 +57,9 @@
       font-weight: 700;
       font-size: 1.2rem;
       background: transparent;
-      border: 1px solid transparent; /* kein sichtbarer Rahmen */
-      padding: 0; /* kein horizontales Padding, damit underline genau passt */
+      border: 1px solid transparent;
+      padding: 0;
       cursor: pointer;
-      display: inline-block;
     }
 
     nav a::after {
@@ -73,16 +71,10 @@
       background-color: currentColor;
       width: 0;
       transition: width 0.3s ease;
-      display: block;
     }
 
     nav a:hover::after {
-      width: 100%; /* genau so breit wie der Text */
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
+      width: 100%;
     }
 
     .gallery {
@@ -140,7 +132,6 @@
       margin-left: 0.3rem;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
