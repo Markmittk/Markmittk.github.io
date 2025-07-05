@@ -15,6 +15,7 @@
       background-color: #ffffff;
       color: #111111;
       padding-top: 80px;
+      cursor: none;
     }
 
     header {
@@ -40,16 +41,46 @@
 
     header h2 {
       margin: 0;
-      font-size: 2rem; /* vergrößert */
+      font-size: 2rem;
       cursor: pointer;
+      opacity: 0.6;
+      mix-blend-mode: difference;
+      transition: opacity 0.3s ease;
+    }
+
+    header h2:hover {
+      opacity: 1;
     }
 
     nav a {
+      position: relative;
       margin-left: 1.5rem;
       text-decoration: none;
-      color: #111;
+      color: inherit;
       font-weight: 700;
-      font-size: 1.2rem; /* hinzugefügt */
+      font-size: 1.2rem;
+      opacity: 0.6;
+      mix-blend-mode: difference;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .gallery {
@@ -119,6 +150,17 @@
         margin-top: 0.5rem;
       }
     }
+
+    /* Schwarzer Cursor als Quadrat */
+    .custom-cursor {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: #000;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
   </style>
 </head>
 
@@ -151,6 +193,9 @@
     </div>
   </footer>
 
+  <!-- Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
   <script>
     function animateAndRedirect(element, url) {
       element.classList.add("animate");
@@ -178,6 +223,13 @@
     );
 
     observer.observe(gallery);
+
+    // Custom Cursor Bewegung
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
   </script>
 </body>
 </html>
