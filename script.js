@@ -16,3 +16,9 @@ document.querySelectorAll('.project-link').forEach(link => {
     }, 500);
   });
 });
+const burger = document.getElementById('burgerMenu');
+const nav = document.getElementById('navLinks');
+
+burger.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
