@@ -23,7 +23,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: transparent; /* komplett transparent */
+      background-color: transparent;
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -33,14 +33,14 @@
     }
 
     header.transparent {
-      background-color: transparent; /* bleibt transparent */
+      background-color: transparent;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
     }
 
     header h2 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 2rem; /* vergrößert */
       cursor: pointer;
     }
 
@@ -49,6 +49,7 @@
       text-decoration: none;
       color: #111;
       font-weight: 700;
+      font-size: 1.2rem; /* hinzugefügt */
     }
 
     .gallery {
@@ -106,7 +107,6 @@
       margin-left: 0.3rem;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
