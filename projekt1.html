@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projekt 1 – Mark Mittasch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .project-page {
+      margin-top: 100px;
+      padding: 2rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: zoomInOut 0.8s ease;
+    }
+
+    .project-page img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes zoomInOut {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="light">
+  <header class="navbar">
+    <div class="logo">Mark Mittasch</div>
+    <nav class="nav-links">
+      <a href="index.html">Start</a>
+      <a href="about.html">About</a>
+      <a href="#kontakt">Kontakt</a>
+      <button id="themeToggle">☀️</button>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <h1>Projekt 1: Titel des Projekts</h1>
+    <img src="assets/projekt1.jpg" alt="Projekt 1 Bild" />
+    <p>
+      Dieses Projekt beschäftigt sich mit der visuellen Umsetzung von XYZ. Dabei wurde auf
+      Klarheit, Komposition und einen starken gestalterischen Ausdruck geachtet.
+    </p>
+    <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+  </main>
+
+  <footer class="footer">© 2025 Mark Mittasch</footer>
+  <script src="script.js"></script>
+</body>
+</html>
