@@ -24,26 +24,60 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-    }
-
-    header.transparent {
-      background-color: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
     header h2 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 2rem;
       cursor: pointer;
+      color: #111;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+    }
+
+    header h2:hover {
+      opacity: 1;
     }
 
     nav a {
+      position: relative;
       margin-left: 1.5rem;
       text-decoration: none;
       color: #111;
       font-weight: 700;
+      font-size: 1.2rem;
+      opacity: 1;
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      background-color: currentColor;
+      width: 0;
+      transition: width 0.3s ease;
+      display: inline-block;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .project-detail {
