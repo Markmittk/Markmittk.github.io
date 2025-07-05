@@ -9,22 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* Body und Standard */
     body {
       margin: 0;
       font-family: 'Futura', 'Barlow', sans-serif;
       background-color: #ffffff;
       color: #111111;
       padding-top: 80px;
-      cursor: none; /* Browser-Cursor komplett ausblenden */
+      cursor: none; /* Nativen Cursor komplett ausblenden */
     }
 
+    /* Transparenter Header */
     header {
       position: sticky;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: #fff; /* feste Hintergrundfarbe, kein transparent */
+      background-color: transparent; /* komplett transparent */
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -32,18 +34,24 @@
       flex-wrap: wrap;
     }
 
+    /* Header Titel */
     header h2 {
       margin: 0;
       font-size: 2rem;
       cursor: pointer;
-      opacity: 0.8;
+      opacity: 0.9;
       transition: opacity 0.3s ease;
+      color: #111;
+      background-color: rgba(255 255 255 / 0.9); /* leichte hintergrundfarbe, damit es nicht verschmilzt */
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
     }
 
     header h2:hover {
       opacity: 1;
     }
 
+    /* Navigation */
     nav a {
       position: relative;
       margin-left: 1.5rem;
@@ -51,9 +59,12 @@
       color: #111;
       font-weight: 700;
       font-size: 1.2rem;
-      opacity: 0.8;
+      opacity: 0.9;
+      background-color: rgba(255 255 255 / 0.9); /* weiße Box, nicht transparent */
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
       transition: opacity 0.3s ease;
-      cursor: pointer; /* Für Hover */
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -75,6 +86,7 @@
       width: 100%;
     }
 
+    /* Galerie */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -113,6 +125,7 @@
       }
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
@@ -131,6 +144,7 @@
       margin-left: 0.3rem;
     }
 
+    /* Responsive */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -155,6 +169,7 @@
       transform: translate(-50%, -50%);
       transition: width 0.2s ease, height 0.2s ease;
       border-radius: 2px;
+      mix-blend-mode: difference; /* sorgt dafür, dass der Cursor auf hellem & dunklem Untergrund sichtbar bleibt */
     }
 
     /* Größer wenn über klickbare Elemente */
