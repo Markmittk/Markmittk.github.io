@@ -43,14 +43,6 @@
       font-weight: 700;
     }
 
-    #theme-toggle {
-      margin-left: 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -94,51 +86,22 @@
 
     .kontakt-container {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
       margin-top: 1rem;
       font-size: 1.1rem;
     }
 
     .kontakt-container a {
       text-decoration: none;
-    }
-
-    .instagram-button {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #111;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .instagram-button:hover {
-      background-color: #e1306c;
+      color: #111;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-    }
-
-    .dark-mode {
-      background-color: #111;
-      color: white;
-    }
-
-    .dark-mode .instagram-button {
-      background-color: white;
-      color: #111;
-    }
-
-    .dark-mode nav a {
-      color: white;
     }
 
     /* Responsive */
@@ -169,7 +132,6 @@
     <nav>
       <a href="#kontakt">Kontakt</a>
       <a href="about.html">About</a>
-      <button onclick="toggleTheme()" id="theme-toggle">🌙</button>
     </nav>
   </header>
 
@@ -188,9 +150,7 @@
     <h2>Kontakt</h2>
     <div class="kontakt-container">
       <p>Schreib mir: <a href="mailto:mark.mitt061@gmail.com">mark.mitt061@gmail.com</a></p>
-      <a href="https://www.instagram.com/markmittk/" target="_blank" class="instagram-button">
-        Instagram
-      </a>
+      <p><a href="https://www.instagram.com/markmittk/" target="_blank">Instagram</a></p>
     </div>
   </section>
 
@@ -204,12 +164,6 @@
       setTimeout(() => {
         window.location.href = url;
       }, 1000);
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle("dark-mode");
-      const icon = document.getElementById("theme-toggle");
-      icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
     }
   </script>
 </body>
