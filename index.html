@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Mark Mittasch</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
     body {
@@ -13,6 +14,7 @@
       background-color: #ffffff;
       color: #111111;
       padding-top: 80px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header {
@@ -33,10 +35,9 @@
     header.transparent {
       background-color: transparent;
       backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
-    header h2 {
+    header h1 {
       margin: 0;
       font-size: 2rem;
       cursor: pointer;
@@ -50,12 +51,9 @@
     nav a {
       position: relative;
       text-decoration: none;
-      color: #111;
+      color: inherit;
       font-weight: 700;
       font-size: 1.2rem;
-      background-color: transparent;
-      border: 1px solid transparent;
-      padding: 0.2rem 0;
     }
 
     nav a::after {
@@ -65,12 +63,34 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background-color: #111;
+      background-color: currentColor;
       transition: width 0.3s ease;
     }
 
     nav a:hover::after {
       width: 100%;
+    }
+
+    .dark-mode {
+      background-color: #111;
+      color: #eee;
+    }
+
+    .dark-mode header,
+    .dark-mode footer {
+      background-color: #222;
+    }
+
+    .dark-mode nav a::after {
+      background-color: #eee;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      margin-left: 1rem;
     }
 
     .gallery {
@@ -87,6 +107,14 @@
       cursor: pointer;
       text-decoration: none;
       color: inherit;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .project.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .project .image-wrapper {
@@ -130,7 +158,7 @@
     }
 
     footer .contact-footer a {
-      color: #111;
+      color: inherit;
       text-decoration: none;
       margin-left: 0.3rem;
     }
@@ -147,38 +175,37 @@
         flex-wrap: wrap;
         gap: 1rem;
       }
-
-      nav a {
-        margin-top: 0;
-      }
     }
   </style>
 </head>
 <body>
   <header id="main-header">
-    <h2 onclick="window.location.href='index.html'">Mark Mittasch</h2>
-    <nav>
-      <a href="index.html">Design</a>
-      <a href="photography.html">Photography</a>
-      <a href="about.html">About</a>
-    </nav>
+    <h1 id="typing-title" onclick="window.location.href='index.html'">|</h1>
+    <div style="display:flex;align-items:center;">
+      <nav>
+        <a href="index.html">Design</a>
+        <a href="photography.html">Photography</a>
+        <a href="about.html">About</a>
+      </nav>
+      <button class="toggle-btn" onclick="toggleDarkMode()">🌓</button>
+    </div>
   </header>
 
   <main>
     <div class="gallery">
       <a class="project" href="projekt1.html">
         <div class="image-wrapper">
-          <img src="assets/projekt1.jpg" alt="Projekt 1" />
+          <img src="assets/projekt1.jpg" alt="Mockup für Projekt 1" loading="lazy" />
         </div>
         <div class="project-title">Projekt 1</div>
       </a>
       <a class="project" href="projekt2.html">
         <div class="image-wrapper">
-          <img src="assets/projekt2.jpg" alt="Projekt 2" />
+          <img src="assets/projekt2.jpg" alt="Mockup für Projekt 2" loading="lazy" />
         </div>
         <div class="project-title">Projekt 2</div>
       </a>
-      <!-- Weitere Projekte einfach hinzufügen -->
+      <!-- Weitere Projekte hier hinzufügen -->
     </div>
   </main>
 
@@ -191,6 +218,21 @@
   </footer>
 
   <script>
+    // Typing-Effekt
+    const titleText = "Mark Mittasch";
+    let index = 0;
+    function typeWriter() {
+      if (index < titleText.length) {
+        document.getElementById("typing-title").textContent = titleText.slice(0, index + 1) + "|";
+        index++;
+        setTimeout(typeWriter, 100);
+      } else {
+        document.getElementById("typing-title").textContent = titleText;
+      }
+    }
+    typeWriter();
+
+    // Scroll-basierte Header-Transparenz
     const header = document.getElementById("main-header");
     const gallery = document.querySelector(".gallery");
 
@@ -208,8 +250,24 @@
         rootMargin: "-80px 0px 0px 0px"
       }
     );
-
     observer.observe(gallery);
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    // Scroll-Reveal Animation
+    const projects = document.querySelectorAll(".project");
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    projects.forEach(p => fadeObserver.observe(p));
   </script>
 </body>
 </html>
