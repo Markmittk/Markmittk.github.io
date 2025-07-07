@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Mark Mittasch</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -143,9 +142,14 @@
       }
 
       nav {
-        margin-top: 1rem;
-        flex-direction: column;
-        gap: 0.5rem;
+        margin-top: 0.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      nav a {
+        margin-top: 0;
       }
     }
   </style>
@@ -166,26 +170,15 @@
         <div class="image-wrapper">
           <img src="assets/projekt1.jpg" alt="Projekt 1" />
         </div>
-        <div class="project-title">INGENUE</div>
+        <div class="project-title">Projekt 1</div>
       </a>
       <a class="project" href="projekt2.html">
         <div class="image-wrapper">
           <img src="assets/projekt2.jpg" alt="Projekt 2" />
         </div>
-        <div class="project-title">SONY</div>
+        <div class="project-title">Projekt 2</div>
       </a>
-      <a class="project" href="projekt3.html">
-        <div class="image-wrapper">
-          <img src="assets/projekt3.jpg" alt="Projekt 3" />
-        </div>
-        <div class="project-title">THE IRISH TIMES</div>
-      </a>
-      <a class="project" href="projekt4.html">
-        <div class="image-wrapper">
-          <img src="assets/projekt4.jpg" alt="Projekt 4" />
-        </div>
-        <div class="project-title">EMPIRE</div>
-      </a>
+      <!-- Weitere Projekte einfach hinzufügen -->
     </div>
   </main>
 
