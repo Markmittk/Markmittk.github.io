@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industrial Designer Portfolio</title>
+  <style>
+    /* Root CSS Variables for easy customization of fonts and colors */
+    :root {
+      --main-bg-color: #ffffff;        /* page background */
+      --text-color: #222222;           /* default text (if any) */
+      --overlay-text-color: #ffffff;   /* overlay text on images */
+      --font-family: sans-serif;       /* base font, e.g., sans-serif system font */
+    }
+
+    /* Global Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      background: var(--main-bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      overscroll-behavior: none; /* prevent pull-to-refresh overscroll glow on mobile */
+    }
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling transition between sections  [oai_citation:9‡blog.pixelfreestudio.com](https://blog.pixelfreestudio.com/mastering-css-scroll-snap-for-better-scrolling-experiences/#:~:text=html%20%7B%20scroll) */
+    }
+    body {
+      /* Enable vertical scroll snapping for full-page sections */
+      scroll-snap-type: y mandatory;   /* snap to sections vertically  [oai_citation:10‡blog.pixelfreestudio.com](https://blog.pixelfreestudio.com/mastering-css-scroll-snap-for-better-scrolling-experiences/#:~:text=Full,to%20create%20such%20an%20experience) */
+      overflow-y: auto;
+    }
+
+    /* Full-page project sections */
+    section.project {
+      position: relative;
+      scroll-snap-align: start;   /* each section snaps to top of viewport  [oai_citation:11‡blog.pixelfreestudio.com](https://blog.pixelfreestudio.com/mastering-css-scroll-snap-for-better-scrolling-experiences/#:~:text=.fullscreen,100vh%3B) */
+      height: 100vh;              /* full viewport height */
+      width: 100%;
+      overflow: hidden;
+      opacity: 0;                /* start invisible for fade-in effect */
+      transition: opacity 0.8s ease-in-out;  /* smooth fade transition */
+    }
+    section.project.visible {
+      opacity: 1; /* this class is added when section enters viewport, making it fade in */
+    }
+
+    /* Project image styling */
+    section.project img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   /* image covers entire section, cropping as needed */
+      object-position: center;
+      /* No pointer events on image, so clicks (if any) pass through to section (non-clickable) */
+      pointer-events: none;
+    }
+
+    /* Caption overlay text */
+    .caption {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      right: 5%;  /* allow some margin on right side as well */
+      color: var(--overlay-text-color);
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);  /* subtle shadow for readability on light or busy backgrounds */
+    }
+    .caption h2 {
+      font-size: 2em;
+      margin-bottom: 0.2em;
+    }
+    .caption p {
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 600px) {
+      .caption h2 { font-size: 1.5em; }
+      .caption p  { font-size: 0.95em; }
+      .caption { bottom: 15%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Project Section 1 -->
+  <section class="project">
+    <!-- Placeholder image (1200x800) for Project 1 -->
+    <img src="https://via.placeholder.com/1200x800.png?text=Project+1" alt="Project 1 image" />
+    <div class="caption">
+      <h2>Project One</h2>
+      <p>Brief description or tagline for the first project.</p>
+    </div>
+  </section>
+
+  <!-- Project Section 2 -->
+  <section class="project">
+    <img src="https://via.placeholder.com/1200x800.png?text=Project+2" alt="Project 2 image" />
+    <div class="caption">
+      <h2>Project Two</h2>
+      <p>Short introduction or caption for the second project.</p>
+    </div>
+  </section>
+
+  <!-- Project Section 3 -->
+  <section class="project">
+    <img src="https://via.placeholder.com/1200x800.png?text=Project+3" alt="Project 3 image" />
+    <div class="caption">
+      <h2>Project Three</h2>
+      <p>Quick blurb or subtitle for the third project showcased.</p>
+    </div>
+  </section>
+
+  <!-- (Add more project sections as needed, following the same structure) -->
+
+  <script>
+    // Intersection Observer to fade in sections on scroll into view  [oai_citation:12‡stackoverflow.com](https://stackoverflow.com/questions/74714333/intersection-observer-css-scroll-snap-fade-fix-div-based-on-scroll-position-o#:~:text=I%27ve%20played%20around%20with%20your,Hope%20this%20code%20below%20helps) [oai_citation:13‡stackoverflow.com](https://stackoverflow.com/questions/74714333/intersection-observer-css-scroll-snap-fade-fix-div-based-on-scroll-position-o#:~:text=const%20appearOnScroll%20%3D%20new%20IntersectionObserver,)
+    // This will add the 'visible' class to each section when it is at least 50% in viewport, and remove it when out.
+    const options = { root: null, threshold: 0.5 };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, options);
+
+    document.querySelectorAll('section.project').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
